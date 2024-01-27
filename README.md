@@ -13,7 +13,8 @@ How to setup ?
     ```
 
 ## Some Modification that you have to make in Ultralytics  ( C:\users\hp\appdata\local\programs\python\python311\lib\site-packages\ultralytics\utils\__init__.py) --- around line 225
-    ```bash
+```bash
+    
     from colorama import AnsiToWin32
     WINDOWS = True
     def set_logging(name=LOGGING_NAME, verbose=True):
@@ -42,8 +43,7 @@ How to setup ?
                             return emojis(super().format(record))
     
                     formatter = CustomFormatter('%(message)s')  # Use CustomFormatter to eliminate UTF-8 output as last recourse
-
-    ```
+```
 
 
 Contact me for any doubts.
