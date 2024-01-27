@@ -60,11 +60,17 @@ def image(request):
             return redirect('image')
     else:
         form = ImageUploadForm()
-    #display the images to user
+        
     images = CCTVImage.objects.all()
-    context = {'images': images, 'form': form}
 
+    processed_images = CCTVImage.objects.filter(processed_image__isnull=False)
+    
+    context = {'images': processed_images, 'form': form}
     return render(request, 'cctv/image.html', context)
+
+# all_images = CCTVImage.objects.all()
+# for image in all_images:
+#     image.delete()
 
 def delete_image(request):
     if request.method == 'POST':
