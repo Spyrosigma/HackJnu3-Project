@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Salsa&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/cctv/image.css">
+    <title>Intellgent Image Processing</title>
+    <style>
+        .image-container {
+            max-width: 100%;
+            max-height: 100%;
+            margin: auto;
+        }
+
+        .responsive-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Detect Weapons in Image / Video &sc; </h1> <br>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit" href=""><a href="/delete_image">Delete All Images </a></button>
+    </form>
+    <hr>
+    <div class="content">
+        <div class="image image-container">
+            {% for image in images %}
+            <img src="{{ image.image.url }}" alt="Image" width="500px" height="auto">
+            {% endfor %}
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <!-- <div class="info">
+        </div> -->
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    <p {% if message.tags %} class="{{ message.tags }}" {% endif %} style="color: red;">
+        {{ message }} !
+    </p>
+    {% endfor %}
+    {% endif %}
+</body>
+
+</html>
