@@ -29,8 +29,8 @@ def webcam(request):
 def home(request):
     email = request.user.email
     if request.method == 'POST':    
-        email_sender = 'namdev2003satyam@gmail.com'
-        email_password = 'erfjrmiajuyglgqf'
+        email_sender = '' #your email id here !
+        email_password = '' #use your google app password here !
         email_receiver = email
 
         subject = 'Alert Mail!'
