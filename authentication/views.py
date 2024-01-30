@@ -39,8 +39,8 @@ def signup(request):
             'password': password,
             'otp' : otp
         }
-            email_sender = 'namdev2003satyam@gmail.com'
-            email_password = 'erfjrmiajuyglgqf'
+            email_sender = '' #your email id here !
+            email_password = '' #use your google app password here !
             email_receiver = email
 
             subject = 'Verify Email!'
@@ -130,8 +130,8 @@ def password_reset(request):
         if form.is_valid() and form.cleaned_data['email'] != '' and User.objects.filter(email=form.cleaned_data['email']).exists():
             
             otp = str(random.randint(100000, 999999))
-            email_sender = 'namdev2003satyam@gmail.com'
-            email_password = 'erfjrmiajuyglgqf'
+            email_sender = '' #your email id here !
+            email_password = '' #use your google app password here !
             email_receiver = request.POST['email']
 
             subject = 'PASSWORD RESET'
